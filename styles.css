@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+#upperhalf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#display {
+  width: 420px;
+  height: 80px;
+  margin: 10px;
+  border: 1px solid black;
+  text-align: right;
+  font-size: 70px;
+}
