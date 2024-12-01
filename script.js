@@ -64,8 +64,14 @@ document.querySelectorAll("#operatorContainer button").forEach((button) => {
       }
     } else {
       if (num1 && !num2) {
-        operator = button.textContent;
-        display.textContent = num1 + " " + operator;
+        if (button.textContent == "+-") {
+          num1 = (-parseFloat(num1)).toString();
+          display.textContent = num1;
+        }
+        else {
+          operator = button.textContent;
+          display.textContent = num1 + " " + operator;
+        }
       } else if (num1 && num2) {
         num1 = operate(parseFloat(num1), parseFloat(num2), operator).toString();
         operator = button.textContent;
