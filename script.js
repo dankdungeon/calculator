@@ -20,13 +20,15 @@ function divide(num1, num2) {
 function operate(num1, num2, operator) {
   switch (operator) {
     case "+":
-      return add(num1, num2);
+      return add(num1, num2).toFixed(2);
     case "-":
-      return subtract(num1, num2);
+      return subtract(num1, num2).toFixed(2);
     case "*":
-      return multiply(num1, num2);
+      return multiply(num1, num2).toFixed(2);
     case "/":
-      return divide(num1, num2);
+      if (num2 == "0")
+        return "ERROR";
+      return divide(num1, num2).toFixed(2);
   }
 }
 
@@ -56,7 +58,7 @@ document.querySelectorAll("#operatorContainer button").forEach((button) => {
       display.textContent = "";
     } else if (button.textContent == "=") {
       if (num1 && num2 && operator) {
-        num1 = operate(parseFloat(num1), parseFloat(num2), operator).toString();
+        num1 = parseFloat(operate(parseFloat(num1), parseFloat(num2), operator)).toString();
         display.textContent = num1;
         num2 = "";
         operator = "";
@@ -73,7 +75,7 @@ document.querySelectorAll("#operatorContainer button").forEach((button) => {
           display.textContent = num1 + " " + operator;
         }
       } else if (num1 && num2) {
-        num1 = operate(parseFloat(num1), parseFloat(num2), operator).toString();
+        num1 = praseFloat(operate(parseFloat(num1), parseFloat(num2), operator)).toString();
         operator = button.textContent;
         display.textContent = num1 + " " + operator;
         num2 = "";
