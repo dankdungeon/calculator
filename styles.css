@@ -9,21 +9,80 @@ body {
   display: flex;
   flex-direction: column;
   width: 420px;
-  height: 600px;
+  height: 550px;
   border: 1px solid black;
+  background-color: #222222;
 }
 
 #upperhalf {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 #display {
   width: 420px;
-  height: 80px;
-  margin: 10px;
+  height: 100px;
+  margin: 12px;
   border: 1px solid black;
-  text-align: right;
   font-size: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #878787;
+  color: #FFFFFF;
+}
+
+#lowerhalf {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  margin: 12px;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+#lowerhalf > div {
+  flex: 1;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 1px;
+}
+
+#row2 > button,
+#row3 > button,
+#row4 > button {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#equals, 
+#divide {
+  height: 100%;
+  width: calc(25% - 2px);
+}
+
+#row5 > button:not(#equals),
+#row1 > button:not(#divide) {
+  flex: 1;
+  height: 100%;
+}
+
+button {
+  margin: 1px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+button.number {
+  background-color: #A1CFFF;
+}
+
+button.operator {
+  background-color: #FF9500;
 }

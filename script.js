@@ -33,11 +33,12 @@ function operate(num1, num2, operator) {
 }
 
 // numbers
-document.querySelectorAll("#numberContainer button").forEach((button) => {
+document.querySelectorAll(".number").forEach((button) => {
   button.addEventListener("click", () => {
     if (!operator) {
       if (lastOperator == "=") {
         num1 = "";
+        lastOperator = "";
         num1 += button.textContent;
       } else num1 += button.textContent;
       display.textContent = num1;
@@ -49,7 +50,7 @@ document.querySelectorAll("#numberContainer button").forEach((button) => {
 });
 
 // operators
-document.querySelectorAll("#operatorContainer button").forEach((button) => {
+document.querySelectorAll(".operator").forEach((button) => {
   button.addEventListener("click", () => {
     if (button.textContent == "AC") {
       num1 = "";
@@ -75,7 +76,7 @@ document.querySelectorAll("#operatorContainer button").forEach((button) => {
           display.textContent = num1 + " " + operator;
         }
       } else if (num1 && num2) {
-        num1 = praseFloat(operate(parseFloat(num1), parseFloat(num2), operator)).toString();
+        num1 = parseFloat(operate(parseFloat(num1), parseFloat(num2), operator)).toString();
         operator = button.textContent;
         display.textContent = num1 + " " + operator;
         num2 = "";
